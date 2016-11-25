@@ -27,11 +27,37 @@ public class MainActivity extends AppCompatActivity {
 
         progressBarHorizontal = (ProgressBar)findViewById( R.id.progressHorizontal );
         progressBarHorizontal.setProgress( 0 );
-
-
-
+        progressBarHorizontal.setSecondaryProgress(0);
     }
 
     public void onButtonClick( View view ) {
+        switch(view.getId()){
+            case R.id.buttonToggleProgressCircle:{
+                boolean isCheked = ((ToggleButton)view).isChecked();
+                progressBarCircle.setVisibility(isCheked ? View.INVISIBLE : View.VISIBLE);
+                break;
+            }
+
+            case R.id.buttonProgressBarPrimaryIncrease:{
+                progressBarHorizontal.incrementProgressBy(1);
+                break;
+            }
+            case R.id.buttonProgressBarPrimaryDecrease:{
+                progressBarHorizontal.incrementProgressBy(-1);
+                break;
+            }
+            case R.id.buttonProgressBarSecondaryIncrease:{
+                progressBarHorizontal.incrementProgressBy(10);
+                break;
+            }
+            case R.id.buttonProgressBarSecondaryDecrease:{
+                progressBarHorizontal.incrementProgressBy(-10);
+                break;
+            }
+            default:
+                break;
+        }
+
+
     }
 }
